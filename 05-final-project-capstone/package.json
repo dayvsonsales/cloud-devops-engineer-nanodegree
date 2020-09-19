@@ -1,0 +1,8 @@
+{
+  "name": "fastfeet",
+  "version": "1.0.6",
+  "description": "A delivery application",
+  "main": "index.js",
+  "author": "Dayvson Sales <dayvson@outlook.com>",
+  "license": "MIT"
+}

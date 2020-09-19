@@ -1,0 +1,20 @@
+pipeline {
+	agent any
+	stages {
+		stage('Checking syntax') {
+			steps {
+			  sh 'echo "Executing tidy linter"'
+			  sh 'tidy -q -e *.html'
+  			}
+        }
+		stage('Upload to AWS') {
+			steps {
+			  sh 'echo "Uploading to AWS"'
+			  withAWS(credentials: 'aws-static'){
+				  s3Upload(bucket: 'udacity-dayvson-jenkins', path: '', includePathPattern: '*')
+			  }
+  			}
+        }
+		
+	}
+}

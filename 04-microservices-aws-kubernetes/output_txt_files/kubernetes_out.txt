@@ -1,0 +1,28 @@
+First run:
+
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/prediction created
+NAME                          READY   STATUS              RESTARTS   AGE
+prediction-74c68cdd94-zbshz   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+
+Second run:
+
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+Error from server (AlreadyExists): deployments.apps "prediction" already exists
+NAME                          READY   STATUS    RESTARTS   AGE
+prediction-74c68cdd94-zbshz   1/1     Running   0          2m37s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+Describe:
+
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  2m27s  default-scheduler  Successfully assigned default/prediction-74c68cdd94-zbshz to minikube
+  Normal  Pulling    2m26s  kubelet, minikube  Pulling image "dayvsonsales/prediction:first"
+  Normal  Pulled     9s     kubelet, minikube  Successfully pulled image "dayvsonsales/prediction:first"
+  Normal  Created    8s     kubelet, minikube  Created container prediction
+  Normal  Started    8s     kubelet, minikube  Started container prediction

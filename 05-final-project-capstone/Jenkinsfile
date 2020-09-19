@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build'){
+            steps {
+                sh 'make install'
+            }
+        }
+        
+        stage('Lint'){
+            steps {
+                sh 'make lint'
+            }
+        }
+
+        stage('Docker'){
+            steps {
+                sh './docker.sh'
+            }
+        }
+        
+        stage('Deploy'){
+            steps {
+                sh './deploy.sh'
+            }
+        }
+    }
+}

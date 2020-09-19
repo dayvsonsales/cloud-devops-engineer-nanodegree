@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: fastfeet
+    labels:
+        run: fastfeet
+spec:
+    ports: 
+    - port: 80
+      protocol: TCP
+    selector: 
+        run: fastfeet
+    type: LoadBalancer
